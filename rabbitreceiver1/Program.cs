@@ -18,6 +18,7 @@ string queueName = "DemoQueue";
 
 channel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
 channel.QueueDeclare(queueName, false, false, false, null);
+// We've created a direct exchange and a queue. Now we need to tell the exchange to send messages to our queue. That relationship between exchange and a queue is called a binding.
 channel.QueueBind(queueName, exchangeName, routingKey, null);
 channel.BasicQos(0, 1, false);
 
